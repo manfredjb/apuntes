@@ -62,3 +62,8 @@ La vista se compone principalmente por los siguientes elementos:
 * **el**: Elemento que encapsula toda la vista (HTML) que contiene los elementos donde se van a desempeñar todas las acciones
 * **event**: Lista de eventos asociados a los elementos.
 initialize
+
+
+
+http://rahulrajatsingh.com/2014/07/backbone-tutorial-part-5-understanding-backbone-js-collections/
+http://www.codeproject.com/Articles/797899/BackBone-Tutorial-Part-CRUD-Operations-on-Backbone
