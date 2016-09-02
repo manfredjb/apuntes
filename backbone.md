@@ -21,8 +21,8 @@ Atributos propiamente del modelo:
 * **idAttribute**: Especifica el nombre del atributo que será usado como identificador dentro de colecciones y restful
 * **urlRoot**: Especifica la url del web service que tiene las acciones CRUD
 
-¿Cómo asignar dinámicamente la urlRoot?
----
+###¿Cómo asignar dinámicamente la urlRoot?
+
 
 Se puede hacer mediante una función:
 
@@ -32,9 +32,7 @@ urlRoot: function(){
 }
 ```
 
-Vista
----
-
+##Vista
 Definición de una vista:
 
 ```javascript
@@ -46,7 +44,7 @@ var Vista = Backbone.View.extend({
     },
 
     initialize: function(parametros){
-        _.bindAll(this, 'calificar', 'enEliminar', 'enErrorActualizar', 'enRespuestaDeActualizar', 'render');
+        _.bindAll(this, 'calificar', 'enEliminar', 'render');
         this.model = new GestorActividades(parametros);
         this.model.on('enEliminar', this.enEliminar);
         this.render();
@@ -63,7 +61,16 @@ La vista se compone principalmente por los siguientes elementos:
 * **event**: Lista de eventos asociados a los elementos.
 initialize
 
+###Acceso al elemento asociado al evento
+Accesar al elemento que desencadenó el evento.
+```javascript
+buscarPlaza: function(e){
+    e.preventDefault();
+    var $boton = $(e.target);
+}
+```
 
+###Otros tutoriales
 
 http://rahulrajatsingh.com/2014/07/backbone-tutorial-part-5-understanding-backbone-js-collections/
 http://www.codeproject.com/Articles/797899/BackBone-Tutorial-Part-CRUD-Operations-on-Backbone
