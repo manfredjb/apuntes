@@ -1,5 +1,18 @@
-Secuencias
-========
+##Funciones
+Crear una función:
+
+```sql
+CREATE OR REPLACE FUNCTION 
+hello_message 
+   (place_in IN VARCHAR2) 
+    RETURN VARCHAR2
+IS
+BEGIN
+   RETURN 'Hello ' || place_in;
+END hello_message;
+```
+
+##Secuencias
 Crear una secuencia que el valor inicial sea 1, se incremente en 1.
 
 ```sql
@@ -12,5 +25,5 @@ CREATE SEQUENCE SECUENCIA_NOTICIA
 
 Asignar la secuencia el valor de una secuencia a un tabla:
 ```sql
-insert into libros values (SEQUENCE SECUENCIA_NOTICIA.nextval, 'Tío conejo');
+insert into libros values (SECUENCIA_NOTICIA.nextval, 'Tío conejo');
 ```
