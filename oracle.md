@@ -27,3 +27,7 @@ Asignar la secuencia el valor de una secuencia a un tabla:
 ```sql
 insert into libros values (SECUENCIA_NOTICIA.nextval, 'Tío conejo');
 ```
+
+###Enlaces primordiales
+
+* [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
