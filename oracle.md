@@ -11,6 +11,28 @@ BEGIN
    RETURN 'Hello ' || place_in;
 END hello_message;
 ```
+##Procedimientos
+Ejemplos de procedimientos anónimos:
+
+```sql
+SET SERVEROUTPUT ON
+BEGIN
+  DBMS_OUTPUT.put_line ('Hello World!');
+END;
+```
+
+Usando variable:
+
+```sql
+DECLARE
+  l_message  
+  VARCHAR2 (100) := 'Hello World!';
+BEGIN
+  DBMS_OUTPUT.put_line (l_message);
+END;
+```
+
+> Se ejecutan en la consola con un **/** al final
 
 ##Secuencias
 Crear una secuencia que el valor inicial sea 1, se incremente en 1.
