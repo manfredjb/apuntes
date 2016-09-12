@@ -50,6 +50,21 @@ Asignar la secuencia el valor de una secuencia a un tabla:
 insert into libros values (SECUENCIA_NOTICIA.nextval, 'Tío conejo');
 ```
 
-###Enlaces primordiales
+##Exportar
+Ejemplo de exportación de datos de 11g a 10g:
+```sql
+expdp usuario/contrasena@service VERSION=10.2 DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log
+```
+
+Para visualizar los directorios disponibles, se pueden ver con:
+```sql
+SELECT * FROM all_directories;
+```
+
+##Otros comandos
+
+SELECT * FROM v$version;
+
+##Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
