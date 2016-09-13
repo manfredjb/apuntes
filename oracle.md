@@ -61,9 +61,39 @@ Para visualizar los directorios disponibles, se pueden ver con:
 SELECT * FROM all_directories;
 ```
 
-Ejemplo de importación del archivo generado
+Ejemplo de importación del archivo generado:
 ```sql
 impdp usuario/contrasena@db DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log DUMPFILE=DATOS.dmp
+```
+
+##Cursores
+Declaración de un cursor:
+```sql
+CURSOR C_EMPLEADO IS
+SELECT NOMBRE, APELLIDO1, CORREO
+FROM EMPLEADOS 
+WHERE CEDULA = X_CEDULA
+EMPLEADO EMPLEADOS%ROWTYPE;
+```
+
+Abrir y cerrar un cursor:
+```sql
+OPEN  C_EMPLEADO;
+FETCH C_EMPLEADO INTO EMPLEADO;
+CLOSE C_EMPLEADO;
+```
+
+Iterar un cursor:
+```sql
+OPEN  C_PUESTOS;
+FETCH C_PUESTOS INTO PUESTO;
+WHILE C_PUESTOS%FOUND LOOP
+
+   DBMS_OUTPUT.put_line (PUESTO.NOMBRE);
+
+FETCH C_PUESTOS INTO PUESTO;
+END LOOP;
+CLOSE C_PUESTOS;
 ```
 
 ##Otros comandos
