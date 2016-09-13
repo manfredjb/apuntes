@@ -50,15 +50,20 @@ Asignar la secuencia el valor de una secuencia a un tabla:
 insert into libros values (SECUENCIA_NOTICIA.nextval, 'Tío conejo');
 ```
 
-##Exportar
+##Exportar e importar
 Ejemplo de exportación de datos de 11g a 10g:
 ```sql
-expdp usuario/contrasena@service VERSION=10.2 DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log
+expdp usuario/contrasena@db VERSION=10.2 DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log DUMPFILE=DATOS.dmp
 ```
 
 Para visualizar los directorios disponibles, se pueden ver con:
 ```sql
 SELECT * FROM all_directories;
+```
+
+Ejemplo de importación del archivo generado
+```sql
+impdp usuario/contrasena@db DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log DUMPFILE=DATOS.dmp
 ```
 
 ##Otros comandos
