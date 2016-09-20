@@ -1,3 +1,22 @@
+## Bloques
+Bloques de iteración y condicionales.
+
+###for
+Ejemplo de un `for` que iterar de 1 a 20:
+
+```sql
+FOR NUMERO IN 1..20 LOOP
+   RESULTADO := NUMERO * 3
+END LOOP;
+```
+También se puede iterar de forma inversa:
+
+```sql
+FOR NUMERO IN REVERSE 1..20 LOOP
+   RESULTADO := NUMERO * 3
+END LOOP;
+```
+
 ##Funciones
 Crear una función:
 
