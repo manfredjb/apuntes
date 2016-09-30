@@ -69,6 +69,23 @@ Asignar la secuencia el valor de una secuencia a un tabla:
 insert into libros values (SECUENCIA_NOTICIA.nextval, 'Tío conejo');
 ```
 
+###Valor actual de la secuencia
+Cambiar el valor actual de una secuencia:
+```sql
+alter sequence SECUENCIA_NOTICIA increment by 500;
+```
+
+Llamamos al siguiente valor:
+```sql
+select SECUENCIA_NOTICIA.nextval from dual;
+```
+
+Dejamos al secuencia a su normalidad:
+```sql
+alter sequence SECUENCIA_NOTICIA increment by 1;
+```
+
+
 ##Exportar e importar
 Ejemplo de exportación de datos de 11g a 10g:
 ```sql
