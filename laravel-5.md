@@ -1,5 +1,3 @@
-[[_TOC_|levels = 3]]
-
 ##La clase Request
 Clase de validación para los request enviados.
 
@@ -66,5 +64,41 @@ public function all()
 
    $this->replace($input);
    return $input;
+}
+```
+
+##Paginador
+Crear un paginador de registros.
+```php
+public function logs(RevisarLogs $solicitud, EntityManager $em){
+       // total por pagina
+       $totalPorPagina = 20;
+       
+       // pagina actual
+       $pagina = $solicitud->get('page', 0);
+       $pagina = ($pagina == 0)? ($pagina * $totalPorPagina) : ($pagina * $totalPorPagina) - $totalPorPagina;
+       
+       // total de registros
+       $total = total_registros();
+
+       // cargar los resultados paginados
+       $qb = $em->createQueryBuilder();
+       $qb->select(['a']);
+       $qb->from(Log::class, 'a');
+       $qb->setFirstResult($pagina);
+       $qb->setMaxResults($totalPorPagina);
+       $qb->orderBy('a.fecha', 'desc');
+       $logs = $qb->getQuery()->getArrayResult();
+       
+       // crear el paginador
+       $paginador = new LengthAwarePaginator(
+              $logs, 
+              $total, 
+              $totalPorPagina, 
+              $solicitud->get('page', 1)
+       );
+       $paginador->setPath(route('depuracion.logs'));
+
+       ...
 }
 ```
