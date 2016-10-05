@@ -103,6 +103,14 @@ var modelo = coleccion.findWhere({
 });
 ```
 
+Buscar todos los objetos que cumplan un criterio:
+```javascript
+var modelos = coleccion.where({
+    "color": "azul",
+    "tamaño": 3
+});
+```
+
 
 ###Otros tutoriales
 
