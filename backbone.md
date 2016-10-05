@@ -111,6 +111,15 @@ var modelos = coleccion.where({
 });
 ```
 
+Eliminar elementos:
+```javascript
+// elimina un solo elemento
+var modelos = coleccion.remove(curso);
+
+// elimina una lista de elemento
+coleccion.remove(cursos);
+```
+
 
 ###Otros tutoriales
 
