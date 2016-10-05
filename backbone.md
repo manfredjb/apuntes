@@ -91,10 +91,18 @@ Vaciar:
 coleccion.reset();
 ```
 
-Buscar por el idAttribute del modelo:
+Buscar un elemento dado un objeto. Usa el idAttribute para encontrarlo:
 ```javascript
 var encontrado = coleccion.get(curso);
 ```
+
+Buscar un objeto por sus propiedades:
+```javascript
+var modelo = coleccion.findWhere({
+    "nombre": "ABC"
+});
+```
+
 
 ###Otros tutoriales
 
