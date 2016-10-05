@@ -120,6 +120,12 @@ var modelos = coleccion.remove(curso);
 coleccion.remove(cursos);
 ```
 
+Iterar:
+```javascript
+matriculados.each(function(matricula) {
+    console.log("nombre: " + matricula.get('nombre'));
+});
+```
 
 ###Otros tutoriales
 
