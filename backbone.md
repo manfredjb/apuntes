@@ -70,6 +70,32 @@ buscarPlaza: function(e){
 }
 ```
 
+Colecciones
+=======
+Estructura de una colección:
+```javascript
+var ColeccionCursos = Backbone.Collection.extend({
+    model: Curso,
+    idAttribute: 'codigo'
+});
+```
+
+###Métodos más comunes
+Agregar:
+```javascript
+coleccion.add(curso);
+```
+
+Vaciar:
+```javascript
+coleccion.reset();
+```
+
+Buscar por el idAttribute del modelo:
+```javascript
+var encontrado = coleccion.get(curso);
+```
+
 ###Otros tutoriales
 
 http://rahulrajatsingh.com/2014/07/backbone-tutorial-part-5-understanding-backbone-js-collections/
