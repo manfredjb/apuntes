@@ -111,6 +111,12 @@ var modelos = coleccion.where({
 });
 ```
 
+Verificar si existe un elemento:
+```javascript
+// true o false
+var existencia = coleccion.contains(curso);
+```
+
 Eliminar elementos:
 ```javascript
 // elimina un solo elemento
@@ -125,6 +131,11 @@ Iterar:
 matriculados.each(function(matricula) {
     console.log("nombre: " + matricula.get('nombre'));
 });
+```
+
+Tamaño de una colección:
+```javascript
+var tamano = matriculados.size();
 ```
 
 ###Otros tutoriales
