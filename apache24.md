@@ -51,3 +51,16 @@ Ejemplo de un  virtual host que responde a la url `mi-app.desarrollo`:
         127.0.0.1 mi-app.desarrollo
         
 Finalmente accesamos a la aplicación a través de `http://mi-app.desarrollo`.
+
+###MaxClients
+Esta configuración establece la cantidad de conexiones concurrentes que el servidor puede procesar. Para calcular este la cantidad se puede usar la siguiente fórmula:
+
+* Memoria requerida por solicitud: 24MB (estimado)
+* Memoria física disponible 8GB
+* Memoria requerida por otros procesos externos (sistema operativo, base de datos, etc): 4GB
+
+```
+MaxClients = ((8-4) * 1024) / 32
+           = 128
+```
+Para estar es más seguro, podemos redondear a `100` el valor.
