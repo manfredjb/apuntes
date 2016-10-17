@@ -138,6 +138,14 @@ Tamaño de una colección:
 var tamano = matriculados.size();
 ```
 
+Sumar el valor de un atributo de todos los modelos:
+```javascript
+totalHorasInvertidas: function () {
+        return _.reduce(this, function(memo, miModelo){ return memo + miModelo.get('hora'); }, 0);
+    },
+```
+> En este ejemplo se suman las horas de todos los modelos a partir de 0. `memo` es una variable temporal que llevará el control de la suma.
+
 ###Otros tutoriales
 
 http://rahulrajatsingh.com/2014/07/backbone-tutorial-part-5-understanding-backbone-js-collections/
