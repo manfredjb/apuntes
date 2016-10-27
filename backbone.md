@@ -146,6 +146,18 @@ totalHorasInvertidas: function () {
 ```
 > En este ejemplo se suman las horas de todos los modelos a partir de 0. `memo` es una variable temporal que llevará el control de la suma.
 
+
+##Problemas frecuentes
+Algunos problemas que son frecuentes por dejar de poner atención:
+
+###Los eventos no se despechan en contenido dinámico
+Cuando agregamos html dinánicamente a la vista, a veces los nuevos eventos asociados a los dom agregados no son ejecutados, por lo tanto se debe revisar que:
+
+1. Si se están usando templates de tipo `<script type"text/html">` se deben sacar de la vista.
+2. El selector del elemento `el` de la vista debe de existir en el html. Cuando no coinciden los eventos no se delegan nunca.
+  
+  >http://stackoverflow.com/questions/15158489/jquery-backbone-click-events-not-firing
+
 ###Otros tutoriales
 
 http://rahulrajatsingh.com/2014/07/backbone-tutorial-part-5-understanding-backbone-js-collections/
