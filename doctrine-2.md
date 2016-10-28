@@ -13,3 +13,4 @@ Usando el valor de una secuencia llamada `SECUENCIA_ACTIVIDAD`:
  */
 protected $codigo;
 ```
+> ¿Cómo crear una [secuencia](oracle.md#secuencias)?
