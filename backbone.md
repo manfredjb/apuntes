@@ -61,6 +61,15 @@ La vista se compone principalmente por los siguientes elementos:
 * **event**: Lista de eventos asociados a los elementos.
 initialize
 
+###Eventos
+####Bootstrap
+Escuchar el evento cuando un modal es mostrado:
+```javascript
+    "show.bs.modal #dialogo-terminos": "mostrarDialogoSolicitud",
+```
+
+>`#dialogo-terminos` es el valor de `data-target` definidor en el botón.
+
 ###Acceso al elemento asociado al evento
 Accesar al elemento que desencadenó el evento.
 ```javascript
@@ -70,8 +79,26 @@ buscarPlaza: function(e){
 }
 ```
 
-Colecciones
-=======
+###template()
+Esta función permite manipular contenido dentro de un elemento dom. Es útil cuando necesitamos agregar contenido dinámicamente.
+```html
+<script type="text/html" id="plantilla-texto-solicitud">
+    <p>Hola <%= descripcion %></p>
+</script>
+```
+> Esta plantilla debe estar definida fuera del contexto de la vista.
+
+Ahora sustituimos valores y agregamos el contenido resultado a un elemento de la vista.
+
+```javascript
+var plantilla = _.template($('#plantilla-texto-solicitud').html());
+$('#dialogo-solicitud-texto').html(plantilla({
+    "descripcion": "mi descripción de prueba"
+}));
+```
+
+##Colecciones
+
 Estructura de una colección:
 ```javascript
 var ColeccionCursos = Backbone.Collection.extend({
