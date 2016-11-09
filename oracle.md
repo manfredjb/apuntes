@@ -173,6 +173,12 @@ SELECT a.capacitacion, a.des_capacitacion, a.costo_hora
 FROM cursos a
 WHERE contains (a.capacitacion, 'excel and 2010%') > 1 and rownum <= ?
 ```
+##Constraint
+
+Eliminar un constraint como una llave primaria:
+```sql
+ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+```
 
 ##Enlaces primordiales
 
