@@ -9,7 +9,7 @@ $( "#input-buscar" ).autocomplete({
         $.getJSON(
             '/buscar-cursos',
             {
-                term: 'excel',
+                term: request.term,
                 limite: 14,
                 jefatura: 'Oficina'
             },
