@@ -151,6 +151,7 @@ var existe = this.get('palabras').find(function(p){
 });
 // true
 console.log(existe);
+```
 
 Eliminar elementos:
 ```javascript
