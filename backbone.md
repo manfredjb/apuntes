@@ -144,6 +144,14 @@ Verificar si existe un elemento:
 var existencia = coleccion.contains(curso);
 ```
 
+Verificar si existe un elemento basado en un criterio:
+```javascript
+var existe = this.get('palabras').find(function(p){
+    return p == 'hola';
+});
+// true
+console.log(existe);
+
 Eliminar elementos:
 ```javascript
 // elimina un solo elemento
