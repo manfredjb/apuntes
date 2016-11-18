@@ -125,18 +125,20 @@ var encontrado = coleccion.get(curso);
 
 Buscar un objeto por sus propiedades:
 ```javascript
-var modelo = coleccion.findWhere({
+var modelo = coleccion.find({
     "nombre": "ABC"
 });
 ```
 
-Buscar todos los objetos que cumplan un criterio:
+Buscar todos los objetos que cumplan un criterio y devuelve un `array` con los resultados :
 ```javascript
 var modelos = coleccion.where({
     "color": "azul",
     "tamaño": 3
 });
 ```
+
+>La cantidad de elementos se puede saber usando la propiedad `length`
 
 Verificar si existe un elemento:
 ```javascript
