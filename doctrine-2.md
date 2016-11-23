@@ -8,8 +8,8 @@ Usando el valor de una secuencia llamada `SECUENCIA_ACTIVIDAD`:
  * @id
  * @var string
  * @GeneratedValue(strategy="SEQUENCE")
- * @SequenceGenerator(sequenceName="SECUENCIA_ACTIVIDAD", initialValue=1, allocationSize=100)
- * @column(type="string", name="codigo")
+ * @SequenceGenerator(sequenceName="SECUENCIA_ACTIVIDAD", initialValue=1, allocationSize=1)
+ * @column(type="integer", name="codigo")
  */
 protected $codigo;
 ```
