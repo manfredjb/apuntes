@@ -23,3 +23,5 @@ Cuando el disco se acerca al límite de almacenamiento podemos realizar algunas 
     -rw------- 1 root root 2.7G Jul 10 03:29 messages-20160710
     -rw------- 1 root root 2.6G Jun 26 03:50 messages-20160626
     ```
+    
+    > Se pueden comprimir mediante `tar -cvzf essages-20160703.tar messages-20160703`
