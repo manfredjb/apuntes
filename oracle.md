@@ -180,6 +180,16 @@ Eliminar un constraint como una llave primaria:
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;
 ```
 
+##Tipo date
+Manipular fechas:
+```sql
+-- restar 5 minutos a la fecha actual
+select sysdate AHORA, sysdate-(60 * 5)/(24*60*60) RESTA_5_MINUTOS from dual;
+
+-- sumar 30 segundos a la fecha actual
+select sysdate AHORA, sysdate+(30)/(24*60*60) AGREGA_30_SEGUNDOS from dual;
+```
+
 ##Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
