@@ -153,6 +153,19 @@ create index CURSOS_BUSCADOR on CURSOS (as) indextype is ctxsys.context
   parameters ('datastore CURSOS_MULTI_COLUMN_DATASTORE');
 ```
 
+Importa saber que la sincronización de los índices por defecto es "manual", es decir, los índices no se van a sincronizar hasta realizar la tarea manualmente:
+```sql
+exec ctx_ddl.sync_index('CURSOS_BUSCADOR');
+```
+
+También se puede especificar que el índice se sincronice en cada commit:
+```sql
+create index CURSOS_BUSCADOR on CURSOS (as) indextype is ctxsys.context
+  parameters ('datastore CURSOS_MULTI_COLUMN_DATASTORE sync (on commit)');
+```
+ >  La última opción es mediante jobs
+
+
 Todos los cursos que llamados `libres`: 
 ```sql
 SELECT a.capacitacion, a.des_capacitacion, a.costo_hora
