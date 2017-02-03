@@ -102,3 +102,15 @@ public function logs(RevisarLogs $solicitud, EntityManager $em){
        ...
 }
 ```
+
+##Diccionario de errores
+Lista de errores conocidos en Laravel y como evitarlos.
+
+##MethodNowAllowedHttpException
+Este error se presenta cuando se intenta ingresar a un route usando un Metodo diferente al establecido. Ejemplo, accesar la siguiente URL en el navegador:
+
+> localhost/eliminar-item/8
+
+```php
+Route::post('eliminar-item/{id}', 'ControladorItem@eliminar');
+```
