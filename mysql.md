@@ -1,4 +1,6 @@
-##Reiniciar contraseña de 
+##Reiniciar contraseña de root
+
+Primero creamos un archivo que actualice la contraseña a la hora de arrancar la 
 
 C:\Program Files\MySQL\MySQL Server 5.7\bin>mysqld --init-file=C:\\tmp\\mysql-in
 it.txt
