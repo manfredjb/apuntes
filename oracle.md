@@ -217,6 +217,16 @@ Por defecto las instalaciones de oracle se muestra en el idioma del sistema oper
       > C:\11gDB\dbhome_1\BIN\lsnrctl stop
       > C:\11gDB\dbhome_1\BIN\lsnrctl start
 
+Para instalaciones más antiguas como 10g se puede encontrar la llave en:
+
+    HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\Wow6432Node\$HOME
+    
+Otros idiomas:
+
+* Inglés: american_america.WE8PC850
+* Español: LATIN AMERICAN SPANISH_COSTA RICA.WE8MSWIN1252
+
+
 ##Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
