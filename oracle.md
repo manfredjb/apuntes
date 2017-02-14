@@ -227,6 +227,14 @@ Otros idiomas:
 * Español: LATIN AMERICAN SPANISH_COSTA RICA.WE8MSWIN1252
 
 
+##Errores
+Lista de soluciones para los errores más comunes.
+
+###Solution for Error FRM-92095: Oracle Jnitiator version too low 
+Se debe crear una variable de ambiente con la siguiente información:
+* Nombre: **JAVA_TOOL_OPTIONS**
+* Valor: **-Djava.vendor="Sun Microsystems Inc."**
+
 ##Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
