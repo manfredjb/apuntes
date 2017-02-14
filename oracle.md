@@ -203,6 +203,20 @@ select sysdate AHORA, sysdate-(60 * 5)/(24*60*60) RESTA_5_MINUTOS from dual;
 select sysdate AHORA, sysdate+(30)/(24*60*60) AGREGA_30_SEGUNDOS from dual;
 ```
 
+##Idioma de la instancia
+Por defecto las instalaciones de oracle se muestra en el idioma del sistema operativo. Suponiendo que 11g está instalado en español, se procede a cambiarlo en inglés de la siguiente manera:
+
+1. Primero se cambia el valor de la llave `NLS_LANG` a `american_america.WE8PC850` en el path del home:
+
+      HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\$HOME
+
+2. Se cambia la locación a Estados Unidos en Start -> Control Panel -> Clock, Language, and Region -> Change location -> Location.
+
+3. Reiniciar el listener:
+
+      > C:\11gDB\dbhome_1\BIN\lsnrctl stop
+      > C:\11gDB\dbhome_1\BIN\lsnrctl start
+
 ##Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
