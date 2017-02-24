@@ -70,7 +70,7 @@ Escuchar el evento cuando un modal es mostrado:
 
 >`#dialogo-terminos` es el valor de `data-target` definidor en el botón.
 
-###Acceso al elemento asociado al evento
+####Acceso al elemento asociado al evento
 Accesar al elemento que desencadenó el evento.
 ```javascript
 buscarPlaza: function(e){
@@ -78,6 +78,25 @@ buscarPlaza: function(e){
     var $boton = $(e.target);
 }
 ```
+
+####Eventos manuales
+Permite al modelo desencadenar un evento manualmente mientras que la vista escucha este mismo evento.
+```javascript
+// modelo
+modelo.trigger('mostrarNombre', {nombre: "hola"});
+
+// vista
+initialize: function(parametros){
+    ...
+    this.listenTo(this.model, 'mostrarNombre', this.enMostrarNombre);
+},
+    
+    
+enMostrarNombre: function (datos) {
+    console.log(datos.nombre);
+},
+```
+
 
 ###template()
 Esta función permite manipular contenido dentro de un elemento dom. Es útil cuando necesitamos agregar contenido dinámicamente.
