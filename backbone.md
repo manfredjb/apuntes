@@ -79,6 +79,14 @@ buscarPlaza: function(e){
 }
 ```
 
+Accesar al elemento al que se le ha asignado el listener.
+```javascript
+buscarPlaza: function(e){
+    e.preventDefault();
+    var $boton = $(e.currentTarget);
+}
+```
+
 ####Eventos manuales
 Permite al modelo desencadenar un evento manualmente mientras que la vista escucha este mismo evento.
 ```javascript
@@ -207,7 +215,7 @@ totalHorasInvertidas: function () {
 ##Problemas frecuentes
 Algunos problemas que son frecuentes por dejar de poner atención:
 
-###Los eventos no se despechan en contenido dinámico
+###Los eventos no se despachan en contenido dinámico
 Cuando agregamos html dinánicamente a la vista, a veces los nuevos eventos asociados a los dom agregados no son ejecutados, por lo tanto se debe revisar que:
 
 1. Si se están usando templates de tipo `<script type"text/html">` se deben sacar de la vista.
