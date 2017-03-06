@@ -75,7 +75,7 @@ Accesar al elemento que desencadenó el evento.
 ```javascript
 buscarPlaza: function(e){
     e.preventDefault();
-    var $boton = $(e.target);
+    var $el = $(e.target);
 }
 ```
 
