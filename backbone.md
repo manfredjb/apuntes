@@ -21,7 +21,7 @@ Atributos propiamente del modelo:
 * **idAttribute**: Especifica el nombre del atributo que será usado como identificador dentro de colecciones y restful
 * **urlRoot**: Especifica la url del web service que tiene las acciones CRUD
 
-###¿Cómo asignar dinámicamente la urlRoot?
+###¿Cómo asignar dinámicamente la urlRoot?###
 
 
 Se puede hacer mediante una función:
@@ -134,7 +134,7 @@ var ColeccionCursos = Backbone.Collection.extend({
 });
 ```
 
-###Métodos más comunes
+###Métodos más comunes###
 Agregar:
 ```javascript
 coleccion.add(curso);
@@ -145,9 +145,10 @@ Vaciar:
 coleccion.reset();
 ```
 
-Buscar un elemento dado un objeto. Usa el idAttribute para encontrarlo:
+Buscar un elemento dado un objeto o su id. Usa el idAttribute para encontrarlo:
 ```javascript
 var encontrado = coleccion.get(curso);
+var otro = coleccion.get(120);
 ```
 
 Buscar un objeto por sus propiedades:
