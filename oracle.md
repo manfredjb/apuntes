@@ -1,7 +1,7 @@
 ## Bloques
 Bloques de iteración y condicionales.
 
-###for
+### for
 Ejemplo de un `for` que iterar de 1 a 20:
 
 ```sql
@@ -17,7 +17,7 @@ FOR NUMERO IN REVERSE 1..20 LOOP
 END LOOP;
 ```
 
-##Funciones
+## Funciones
 Crear una función:
 
 ```sql
@@ -30,7 +30,7 @@ BEGIN
    RETURN 'Hello ' || place_in;
 END hello_message;
 ```
-##Procedimientos
+## Procedimientos
 Ejemplos de procedimientos anónimos:
 
 ```sql
@@ -53,7 +53,7 @@ END;
 
 > Se ejecutan en la consola con un **/** al final
 
-##Secuencias
+## Secuencias
 Crear una secuencia que el valor inicial sea 1, se incremente en 1.
 
 ```sql
@@ -69,7 +69,7 @@ Asignar la secuencia el valor de una secuencia a un tabla:
 insert into libros values (SECUENCIA_NOTICIA.nextval, 'Tío conejo');
 ```
 
-###Valor actual de la secuencia
+### Valor actual de la secuencia
 Cambiar el valor actual de una secuencia:
 ```sql
 alter sequence SECUENCIA_NOTICIA increment by 500;
@@ -86,7 +86,7 @@ alter sequence SECUENCIA_NOTICIA increment by 1;
 ```
 
 
-##Exportar e importar
+## Exportar e importar
 Ejemplo de exportación de datos de 11g a 10g:
 ```sql
 expdp usuario/contrasena@db VERSION=10.2 DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log DUMPFILE=DATOS.dmp
@@ -102,7 +102,7 @@ Ejemplo de importación del archivo generado:
 impdp usuario/contrasena@db DIRECTORY=DATA_PUMP_DIR FULL=Y LOGFILE=DEMO.log DUMPFILE=DATOS.dmp
 ```
 
-##Cursores
+## Cursores
 Declaración de un cursor:
 ```sql
 CURSOR C_EMPLEADO IS
@@ -132,14 +132,14 @@ END LOOP;
 CLOSE C_PUESTOS;
 ```
 
-##Otros comandos
+## Otros comandos
 
 SELECT * FROM v$version;
 
-##Índices
+## Índices
 Ejemplo de creaciones de distintos tipos de índices.
 
-###Índice de texto con múltiples columnas
+### Índice de texto con múltiples columnas
 Ejemplo de cómo crear un índice llamado `CURSOS_BUSCADOR` para la tabla `cursos` creando una columna virtual llamada `CURSOS_MULTI_COLUMN_DATASTORE` que está compuesta por las columnas `capacitacion` y `des_capacitacion`.
 
 ```sql
@@ -186,14 +186,14 @@ SELECT a.capacitacion, a.des_capacitacion, a.costo_hora
 FROM cursos a
 WHERE contains (a.capacitacion, 'excel and 2010%') > 1 and rownum <= ?
 ```
-##Constraint
+## Constraint
 
 Eliminar un constraint como una llave primaria:
 ```sql
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;
 ```
 
-##Tipo date
+## Tipo date
 Manipular fechas:
 ```sql
 -- restar 5 minutos a la fecha actual
@@ -203,7 +203,7 @@ select sysdate AHORA, sysdate-(60 * 5)/(24*60*60) RESTA_5_MINUTOS from dual;
 select sysdate AHORA, sysdate+(30)/(24*60*60) AGREGA_30_SEGUNDOS from dual;
 ```
 
-##Idioma de la instancia
+## Idioma de la instancia
 Por defecto las instalaciones de oracle se muestra en el idioma del sistema operativo. Suponiendo que 11g está instalado en español, se procede a cambiarlo en inglés de la siguiente manera:
 
 1. Primero se cambia el valor de la llave `NLS_LANG` a `american_america.WE8PC850` en el path del home:
@@ -227,14 +227,14 @@ Otros idiomas:
 * Español: LATIN AMERICAN SPANISH_COSTA RICA.WE8MSWIN1252
 
 
-##Errores
+## Errores
 Lista de soluciones para los errores más comunes.
 
-###FRM-92095: Oracle Jnitiator version too low 
+### FRM-92095: Oracle Jnitiator version too low 
 Se debe crear una variable de ambiente con la siguiente información:
 * Nombre: **JAVA_TOOL_OPTIONS**
 * Valor: **-Djava.vendor="Sun Microsystems Inc."**
 
-##Enlaces primordiales
+## Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
