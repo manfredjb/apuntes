@@ -1,13 +1,13 @@
-##La clase Request
+## La clase Request
 Clase de validación para los request enviados.
 
-###Acceder los binds declarados en el Route
+### Acceder los binds declarados en el Route
 Carga el valor como un objeto si así el bind fue declarado de esa manera.
 ```php
 $product = $request->route('product');
 ```
 
-###Redirigir a otra página con un mensaje de error
+### Redirigir a otra página con un mensaje de error
 Por defecto si la validación falla, el request regresa a la página de donde provino. Podemos hacer que redirija el error/mensajes a otra página:
 ```php
 public function response(array $errors)
@@ -18,14 +18,14 @@ public function response(array $errors)
 }
 ```
 
-###Parsear los mensajes de error a un array de mensajes
+### Parsear los mensajes de error a un array de mensajes
 Convierte una lista de errores a un objeto `MessageBag` que contiene los mensajes correspondientes
 ```php
 use Illuminate\Support\MessageBag;
 $errorBag = new MessageBag($errors);
 ```
 
-###Emular la función sometimes()
+### Emular la función sometimes()
 El servicio `Validator` contiene una función llamada `sometimes()` que no está disponible en la clase Request, pero podemos emularla:
 ```php
 protected function getValidatorInstance(){
@@ -40,7 +40,7 @@ protected function getValidatorInstance(){
 }
 ```
 
-###Sobreescribir mensajes de error
+### Sobreescribir mensajes de error
 La clase Request permite sobreescribir mensajes de error para un request dado:
 ```php
 public function messages()
@@ -52,7 +52,7 @@ public function messages()
 }
 ```
 
-###Manipular valores antes de aplicar las reglas
+### Manipular valores antes de aplicar las reglas
 Podemos manipular los valores del request antes de ser validados:
 ```php
 public function all()
@@ -67,7 +67,7 @@ public function all()
 }
 ```
 
-##Paginador
+## Paginador
 Crear un paginador de registros.
 ```php
 public function logs(RevisarLogs $solicitud, EntityManager $em){
@@ -103,10 +103,10 @@ public function logs(RevisarLogs $solicitud, EntityManager $em){
 }
 ```
 
-##Diccionario de errores
+## Diccionario de errores
 Lista de errores conocidos en Laravel y como evitarlos.
 
-##MethodNowAllowedHttpException
+## MethodNowAllowedHttpException
 Este error se presenta cuando se intenta ingresar a un route usando un Metodo diferente al establecido. Ejemplo, accesar la siguiente URL en el navegador:
 
 > localhost/eliminar-item/8
