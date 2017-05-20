@@ -21,7 +21,7 @@ Atributos propiamente del modelo:
 * **idAttribute**: Especifica el nombre del atributo que será usado como identificador dentro de colecciones y restful
 * **urlRoot**: Especifica la url del web service que tiene las acciones CRUD
 
-###¿Cómo asignar dinámicamente la urlRoot?###
+### ¿Cómo asignar dinámicamente la urlRoot?
 
 
 Se puede hacer mediante una función:
@@ -32,7 +32,7 @@ urlRoot: function(){
 }
 ```
 
-##Vista
+## Vista
 Definición de una vista:
 
 ```javascript
@@ -61,8 +61,8 @@ La vista se compone principalmente por los siguientes elementos:
 * **event**: Lista de eventos asociados a los elementos.
 initialize
 
-###Eventos
-####Bootstrap
+### Eventos
+#### Bootstrap
 Escuchar el evento cuando un modal es mostrado:
 ```javascript
     "show.bs.modal #dialogo-terminos": "mostrarDialogoSolicitud",
@@ -70,7 +70,7 @@ Escuchar el evento cuando un modal es mostrado:
 
 >`#dialogo-terminos` es el valor de `data-target` definidor en el botón.
 
-####Acceso al elemento asociado al evento
+#### Acceso al elemento asociado al evento
 Accesar al elemento que desencadenó el evento.
 ```javascript
 buscarPlaza: function(e){
@@ -87,7 +87,7 @@ buscarPlaza: function(e){
 }
 ```
 
-####Eventos manuales
+#### Eventos manuales
 Permite al modelo desencadenar un evento manualmente mientras que la vista escucha este mismo evento.
 ```javascript
 // modelo
@@ -106,7 +106,7 @@ enMostrarNombre: function (datos) {
 ```
 
 
-###template()
+### template()
 Esta función permite manipular contenido dentro de un elemento dom. Es útil cuando necesitamos agregar contenido dinámicamente.
 ```html
 <script type="text/html" id="plantilla-texto-solicitud">
@@ -124,7 +124,7 @@ $('#dialogo-solicitud-texto').html(plantilla({
 }));
 ```
 
-##Colecciones
+## Colecciones
 
 Estructura de una colección:
 ```javascript
@@ -134,7 +134,7 @@ var ColeccionCursos = Backbone.Collection.extend({
 });
 ```
 
-###Métodos más comunes###
+### Métodos más comunes
 Agregar:
 ```javascript
 coleccion.add(curso);
@@ -213,10 +213,10 @@ totalHorasInvertidas: function () {
 > En este ejemplo se suman las horas de todos los modelos a partir de 0. `memo` es una variable temporal que llevará el control de la suma.
 
 
-##Problemas frecuentes
+## Problemas frecuentes
 Algunos problemas que son frecuentes por dejar de poner atención:
 
-###Los eventos no se despachan en contenido dinámico
+### Los eventos no se despachan en contenido dinámico
 Cuando agregamos html dinánicamente a la vista, a veces los nuevos eventos asociados a los dom agregados no son ejecutados, por lo tanto se debe revisar que:
 
 1. Si se están usando templates de tipo `<script type"text/html">` se deben sacar de la vista.
@@ -224,7 +224,7 @@ Cuando agregamos html dinánicamente a la vista, a veces los nuevos eventos asoc
   
   >http://stackoverflow.com/questions/15158489/jquery-backbone-click-events-not-firing
 
-###Otros tutoriales
+### Otros tutoriales
 
 http://rahulrajatsingh.com/2014/07/backbone-tutorial-part-5-understanding-backbone-js-collections/
 http://www.codeproject.com/Articles/797899/BackBone-Tutorial-Part-CRUD-Operations-on-Backbone
