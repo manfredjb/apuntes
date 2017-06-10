@@ -68,7 +68,7 @@ Escuchar el evento cuando un modal es mostrado:
     "show.bs.modal #dialogo-terminos": "mostrarDialogoSolicitud",
 ```
 
->`#dialogo-terminos` es el valor de `data-target` definidor en el botón.
+>`#dialogo-terminos` es el valor de `data-target` definidor en el botón. Y para acceder al botón que despachó el diálogo se usa `$(e.relatedTarget)`
 
 #### Acceso al elemento asociado al evento
 Accesar al elemento que desencadenó el evento.
