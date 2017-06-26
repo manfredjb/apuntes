@@ -170,7 +170,11 @@ create index CURSOS_BUSCADOR on CURSOS (CAPACITACION) indextype is ctxsys.contex
 ```sql
 select ctx_report.describe_index ('CURSOS_BUSCADOR') from dual;
 ```
+O bien, para ver el script de creación podemos hacer:
 
+```sql
+select ctx_report.create_index_script ('CURSOS_BUSCADOR') from dual;
+```
 
 Todos los cursos que llamados `libres`: 
 ```sql
