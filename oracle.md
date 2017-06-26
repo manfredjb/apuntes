@@ -164,6 +164,12 @@ create index CURSOS_BUSCADOR on CURSOS (CAPACITACION) indextype is ctxsys.contex
   parameters ('datastore CURSOS_MULTI_COLUMN_DATASTORE sync (on commit)');
 ```
  >  La última opción es mediante jobs
+ 
+ Para verificar cómo está compuesto un índice CTX se puede hacer a través de:
+ 
+```sql
+select ctx_report.describe_index ('CURSOS_BUSCADOR') from dual;
+```
 
 
 Todos los cursos que llamados `libres`: 
