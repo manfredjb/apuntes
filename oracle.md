@@ -203,7 +203,7 @@ Eliminar un constraint como una llave primaria:
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;
 ```
 
-## Tipo date
+## Fechas (date)
 Manipular fechas:
 ```sql
 -- restar 5 minutos a la fecha actual
@@ -211,6 +211,37 @@ select sysdate AHORA, sysdate-(60 * 5)/(24*60*60) RESTA_5_MINUTOS from dual;
 
 -- sumar 30 segundos a la fecha actual
 select sysdate AHORA, sysdate+(30)/(24*60*60) AGREGA_30_SEGUNDOS from dual;
+
+-- sumar 2 dias a la fecha actual
+select sysdate + 2  from dual;
+```
+
+### Consultas
+Último día del mes:
+```sql
+SELECT LAST_DAY(SYSDATE) FROM DUAL;
+```
+
+Primer día del mes: (Nos movemos al último día del mes, le sumamos 1 día para ir al primer día del mes siguiente, y luego se resta un mes)
+```sql
+SELECT ADD_MONTHS( (LAST_DAY(SYSDATE) + 1), -1 ) FROM DUAL;
+```
+
+Nombre del día de la semana:
+```sql
+-- FRIDAY
+select to_char(SYSDATE, 'DAY') FROM DUAL;
+
+-- FRI
+select to_char(SYSDATE, 'DY') FROM DUAL;
+```
+
+> El idioma del nombre del día está sujeto al valor de la configuración `NLS_LANG`
+
+Número de semana del mes:
+```
+-- 2
+SELECT TO_CHAR(trunc(TO_DATE('04/07/2017', 'DD/MM/YYYY')), 'W') FROM DUAL;
 ```
 
 ## Configuraciones NLS
@@ -231,7 +262,8 @@ SELECT to_char(trunc(sysdate, 'D'),'Day') as start_day from dual;A
 
 ### NLS_LANG
 * Cambia el idioma de los mensajes de error e informacimativos:
-```
+
+```SQL
 ALTER SESSION SET NLS_LANG = 'ENGLISH';
 -- ORA-00904: "@": invalid identifier
 
