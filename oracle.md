@@ -213,6 +213,32 @@ select sysdate AHORA, sysdate-(60 * 5)/(24*60*60) RESTA_5_MINUTOS from dual;
 select sysdate AHORA, sysdate+(30)/(24*60*60) AGREGA_30_SEGUNDOS from dual;
 ```
 
+## Configuraciones NLS
+Se configuraciones asociadas al idioma, moneda, territorio, formatos de día, fecha, etc. 
+
+### NLS_TERRITORY
+* Cambia el día inicial de la semana de `Sunday` a `Monday`
+
+```SQL
+-- Sunday
+ALTER SESSION SET NLS_TERRITORY = 'AMERICA';
+SELECT to_char(trunc(sysdate, 'D'),'Day') as start_day from dual;
+
+-- Monday
+ALTER SESSION SET NLS_TERRITORY = 'Mexico';
+SELECT to_char(trunc(sysdate, 'D'),'Day') as start_day from dual;A
+```
+
+### NLS_LANG
+* Cambia el idioma de los mensajes de error e informacimativos:
+```
+ALTER SESSION SET NLS_LANG = 'ENGLISH';
+-- ORA-00904: "@": invalid identifier
+
+ALTER SESSION SET NLS_LANG = 'SPANISH';
+-- ORA-00904: "@": identificador no válido
+```
+
 ## Idioma de la instancia
 Por defecto las instalaciones de oracle se muestra en el idioma del sistema operativo. Suponiendo que 11g está instalado en español, se procede a cambiarlo en inglés de la siguiente manera:
 
