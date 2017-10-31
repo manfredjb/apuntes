@@ -1,4 +1,4 @@
-###Objetos
+## Objetos
 Ejercicios orientado a objetos y funciones de clases.
 
 * Crear una clase llamada `Matemática` que contenga las siguientes funciones:
@@ -31,7 +31,7 @@ Ejercicios orientado a objetos y funciones de clases.
     ```
     
   
-###HTML
+## HTML
 Ejercicios de cómo utilizar los elementos `<form>` e `<input>`, `<select>`.
 
 1. Utilizando `GET`, crear un formulario que envíe los siguientes parámetros e imprimir los valores:
