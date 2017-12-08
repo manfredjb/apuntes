@@ -16,6 +16,8 @@ Lo ideal es que el valor de `server_ior` se vea así:
 [2011/6/5 11:58:35:985] Info 50128 (RWEngine:init): orb init succeeded
 ```
 
+> Nótese que la variable `server_ior` acá si está definida, pero en el error no
+
 ### Causa
 * La variable de ambiente de OAS `REPORTS_TMP` contiene el directorio de archivos temporales. Si el directorio es incorrecto (que no exista, que no tenga permisos, etc) salta este error.
 
