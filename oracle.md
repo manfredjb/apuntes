@@ -244,12 +244,12 @@ Se debe crear una variable de ambiente con la siguiente información:
 * Nombre: **JAVA_TOOL_OPTIONS**
 * Valor: **-Djava.vendor="Sun Microsystems Inc."**
 
-### "ORA-01033: ORACLE initialization or shutdown in progress."
+### ORA-01033: ORACLE initialization or shutdown in progress.
 Algunas de las razones principales de error son:
 
 * Filesystem lleno
 
-#### Filesystem lleno**
+#### Filesystem lleno
 Si este fuera el caso, entonces abrimos consola y ejecutamos:
 
     > sqlplus /nolog
@@ -273,7 +273,7 @@ Si este fuera el caso, entonces abrimos consola y ejecutamos:
     
 Verificamos cuánto espacio tenemos reservado para los recovery files y cuánto espacio hemos utilizado
 
-> select SPACE_USED/1024/1024/1024 SPACE_USED, SPACE_LIMIT/1024/1024/1024 SPACE_LIMIT from  v$recovery_file_dest;
+    select SPACE_USED/1024/1024/1024 SPACE_USED, SPACE_LIMIT/1024/1024/1024 SPACE_LIMIT from  v$recovery_file_dest;
 
     SPACE_USED SPACE_LIMIT
     ---------- -----------
