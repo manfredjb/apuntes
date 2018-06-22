@@ -244,6 +244,49 @@ Se debe crear una variable de ambiente con la siguiente información:
 * Nombre: **JAVA_TOOL_OPTIONS**
 * Valor: **-Djava.vendor="Sun Microsystems Inc."**
 
+### "ORA-01033: ORACLE initialization or shutdown in progress."
+Algunas de las razones principales de error son:
+
+* Filesystem lleno
+
+#### Filesystem lleno**
+Si este fuera el caso, entonces abrimos consola y ejecutamos:
+
+    > sqlplus /nolog
+    SQL> connect / as sysdba
+
+    Connected.
+
+    SQL> shutdown abort
+
+    ORACLE Instance shut down.
+
+    SQL> startup nomount
+
+    ORACLE Instance started
+
+    SQL> alter database mount;
+
+    SQL> alter database open;
+    
+>  ORA-19809: limit exceeded for recovery files
+    
+Verificamos cuánto espacio tenemos reservado para los recovery files y cuánto espacio hemos utilizado
+
+> select SPACE_USED/1024/1024/1024 SPACE_USED, SPACE_LIMIT/1024/1024/1024 SPACE_LIMIT from  v$recovery_file_dest;
+
+    SPACE_USED SPACE_LIMIT
+    ---------- -----------
+    12.4      12.5
+    
+Eliminamos logs antiguos con RMAN. Abrimos un `cmd` y ejecutamos:
+
+      > RMAN
+      RMAN> connect target RH/RH@DB 
+      RMAN> DELETE ARCHIVELOG UNTIL TIME 'SYSDATE-30';
+
+Y volvemos a iniciar la base de datos.
+
 ## Enlaces primordiales
 
 * [Configuración y administración del pool de conexiones](http://www.toadworld.com/platforms/oracle/w/wiki/1633.database-resident-connection-pooling-drcp)
