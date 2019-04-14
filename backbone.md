@@ -155,7 +155,7 @@ Si se necesitara asignar el valor de la url mediante dinámicamente se podría h
 ```javascript
 coleccion.url = '/otro/api/cursos';
 ```
-
+> Es incorrecto utilizar `set('url', ...)`/
 ### Métodos más comunes
 Agregar:
 ```javascript
