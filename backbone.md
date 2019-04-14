@@ -36,7 +36,7 @@ urlRoot: function(){
 La función initialize es llamada cuando el modelo es creado. Es útil realizar tareas después de que el constructor es llamado.
 ```javascript
 initialize: function() {
-    this.get('graficos').url = this.get('api').graficos;
+    this.calcularEdad();
 },
 ```
 
