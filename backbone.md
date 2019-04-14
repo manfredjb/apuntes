@@ -32,6 +32,14 @@ urlRoot: function(){
 }
 ```
 
+### initialize
+La función initialize es llamada cuando el modelo es creado. Es útil realizar tareas después de que el constructor es llamado.
+```javascript
+initialize: function() {
+    this.get('graficos').url = this.get('api').graficos;
+},
+```
+
 ## Vista
 Definición de una vista:
 
@@ -132,6 +140,20 @@ var ColeccionCursos = Backbone.Collection.extend({
     model: Curso,
     idAttribute: 'codigo'
 });
+```
+
+Cuando se necesita sincronizar los modelos con el servidor, se puede especificar la url:
+```javascript
+var ColeccionCursos = Backbone.Collection.extend({
+    model: Curso,
+    idAttribute: 'codigo',
+    url: '/api/cursos'
+});
+```
+
+Si se necesitara asignar el valor de la url mediante dinámicamente se podría hacer así:
+```javascript
+coleccion.url = '/otro/api/cursos';
 ```
 
 ### Métodos más comunes
