@@ -44,6 +44,11 @@ O bien, para ver el script de creación podemos hacer:
 select ctx_report.create_index_script ('CURSOS_BUSCADOR') from dual;
 ```
 
+## Eliminar una preferencia:
+```sql
+ctx_ddl.drop_preference('usuarios_datastore');
+```
+
 ## Ejemplo de búsquedas
 
 Todos los cursos que llamados `libres`: 
