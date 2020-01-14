@@ -1,3 +1,17 @@
+# Token
+
+Creación del guard para el acceso api.
+
+## Route
+```php
+Route::prefix('api2/2.0')
+            ->middleware('auth:api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api-2.0.php'));
+```
+
+## auth.php
+
 ```php
 'guards' => [
   'web' => [
