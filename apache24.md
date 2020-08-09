@@ -64,3 +64,83 @@ MaxClients = ((8-4) * 1024) / 32
            = 128
 ```
 Para estar es más seguro, podemos redondear a `100` el valor.
+
+
+### Autenticación con Active Directory
+
+Para ello se hace uso del módulo [mod_authn_ntlm](https://github.com/TQsoft-GmbH/mod_authn_ntlm) para Apache 2.4
+
+#### Instalación
+La instalación del módulo depende de los siguientes pasos:
+
+1. Descargar el CMAKE versión Windows X64: https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-win64-x64.msi
+2. Instalar con la opción de "Agregar CMAKE al PATH de ambiente"
+3. Descargar el proyecto mod_authn_ntlm
+4. Dentro del proyecto hacer:
+
+    ```
+    > cmake -B ./build-x64 -S ./ -G "Visual Studio 15 2017" -A x64 -T host=x64 -DAPACHE_ROOT="D:\web\Apache24"
+    > cmake --build ./build-x64 --config Release
+    > cmake --build ./build-x64 --config Debug
+    ```
+5. Al terminar, se creará el archivo **mod_authn_ntlm.so** en la carpeta **mod_authn_ntlm/build-x64/Release/**
+6. Copiar el contenido de la carpeta release al directorio modules de Apache
+
+#### Configuración
+En el archivo httpd.conf habilitar los siguientes módulos:
+
+```ApacheConf
+LoadModule ldap_module modules/mod_ldap.so
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+LoadModule headers_module modules/mod_headers.so
+LoadModule auth_ntlm_module modules/mod_authn_ntlm.so
+```
+
+#### Ejemplo 
+El siguiente código es un ejemplo de un virtual host con proxy con autenticación de AD.
+
+```ApacheConf
+<VirtualHost *:9292>
+    DocumentRoot "D:\web\apps\prueba-ad"
+    ErrorLog "logs/9292-error.log"
+    CustomLog "logs/9292-access.log" common
+    #<Directory "D:\web\apps\prueba-ad">
+	#	Options Indexes FollowSymLinks
+    #        AllowOverride All
+    #        Require all granted
+    #</Directory>
+	DirectoryIndex index.php
+	ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyErrorOverride Off
+    ProxyPass / http://54.156.66.16:9090/
+    ProxyPassReverse / http://54.156.66.16:9090/
+	#Header set MyHeader "Hello Joe. It took %D microseconds for Apache to serve this request."
+	RequestHeader unset X_ISRW_PROXY_AUTH_USER
+	<Location />
+		 AuthType SSPI
+		 AuthName "Private location"
+		 NTLMAuth On
+		 NTLMAuthoritative On
+		 <RequireAll>
+			 <RequireAny>
+				 Require valid-user
+			 </RequireAny>
+			 <RequireNone>
+				 Require user "ANONYMOUS LOGON"
+			 </RequireNone>
+		 </RequireAll>
+		 #Header set X_ISRW_PROXY_AUTH_USER expr=%{REMOTE_USER}
+		 RequestHeader set X_ISRW_PROXY_AUTH_USER expr=%{REMOTE_USER}
+	</Location>
+</VirtualHost>
+```
+
+#### PHP
+Desde PHP, a nivel de proxi se puede conocer el usuaria vía `$_SERVER`:
+
+```php
+<?php var_dump($_SERVER); ?>
+```
