@@ -115,8 +115,8 @@ El siguiente c√≥digo es un ejemplo de un virtual host con proxy con autenticaci√
 	ProxyRequests Off
     ProxyPreserveHost On
     ProxyErrorOverride Off
-    ProxyPass / http://54.156.66.16:9090/
-    ProxyPassReverse / http://54.156.66.16:9090/
+    ProxyPass / http://53.153.63.13:9090/
+    ProxyPassReverse / http://53.153.63.13:9090/
 	#Header set MyHeader "Hello Joe. It took %D microseconds for Apache to serve this request."
 	RequestHeader unset X_ISRW_PROXY_AUTH_USER
 	<Location />
