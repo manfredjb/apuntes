@@ -1,4 +1,4 @@
-##Apache 2.4
+## Apache 2.4
 Configuraciones
 
 ### Creación de un virtual host
@@ -52,7 +52,7 @@ Ejemplo de un  virtual host que responde a la url `mi-app.desarrollo`:
         
 Finalmente accesamos a la aplicación a través de `http://mi-app.desarrollo`.
 
-###MaxClients
+### MaxClients
 Esta configuración establece la cantidad de conexiones concurrentes que el servidor puede procesar. Para calcular este la cantidad se puede usar la siguiente fórmula:
 
 * Memoria requerida por solicitud: 24MB (estimado)
