@@ -155,7 +155,7 @@ El certificado se crea a partir de una llave creada, entonces, procedemos:
 > El archivo resultante, `csr.pem`, contiene la clave pública, la firma digital de la clave pública y los metadatos que ha especificado. 
 
 ### 2. Obtener un certificado CA
-En este ejemplo he adquirido un certificado en RapidSSL para instalarlo en un dominio ya preconfigurado. Para efectos de este ejercicio se usará el subdominio `sub.ejemplo.com`.
+En este ejemplo he adquirido un certificado wildcard en RapidSSL para instalarlo en un dominio ya preconfigurado. Para efectos de este ejercicio se usará el el *Common Name*: `*.ejemplo.com`.
 
 Una vez comprado el certificado viene el proceso de generación del certificado, y para ello debemos contar con un certificado firmado por nuestro propio servidor, que el punto 3 lo llamamos `csr.pem`.
 
