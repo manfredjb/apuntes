@@ -20,3 +20,11 @@ where
     and w.KGLLKHDL = sw.p1raw
     and s2.saddr = b.KGLLKUSE;
 ```
+ 
+El resultado es el siguiente:
+
+|SID | SADDR | P1RAW|
+-----|-------|---------
+|154	| 00007FF9E80D9078	| 00007FF9FF6814D0|
+
+Ahora solo queda terminar a sesión `154`
