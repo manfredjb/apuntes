@@ -1,3 +1,5 @@
+
+
 Modelo
 =======
 Estructura de un modelo:
@@ -71,6 +73,16 @@ initialize
 
 ### Eventos
 #### Bootstrap
+
+Incialmente se deben considerar la importación de librerías correctamente:
+```javascript
+const $ = require('jquery');
+window.$ = $;
+window.jQuery = $;
+require('bootstrap/dist/js/bootstrap.min');
+```
+
+
 Escuchar el evento cuando un modal es mostrado:
 ```javascript
     "show.bs.modal #dialogo-terminos": "mostrarDialogoSolicitud",
