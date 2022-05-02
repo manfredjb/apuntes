@@ -1,0 +1,25 @@
+du -a /u01/ | sort -n -r | head -n 20
+
+70193772       /u01/
+155147304       /u01/app
+155147256       /u01/app/oracle
+79805836        /u01/app/oracle/diag
+79704120        /u01/app/oracle/diag/tnslsnr
+79704116        /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194
+79704112        /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener
+69067560        /u01/app/oracle/oradata
+69067556        /u01/app/oracle/oradata/factprod
+51894904        /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener/alert
+33069552        /u01/app/oracle/oradata/factprod/temp01.dbf
+31776020        /u01/app/oracle/oradata/factprod/users01.dbf
+27808896        /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener/trace
+27808892        /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener/trace/listener.log
+
+du -sh /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener | sort -n -r | head -n 20
+
+
+find /u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener/alert/ -type f -mtime +30 -delete 
+
+du -a /u01/app/oracle/diag/tnslsnr/ | sort -n -r | head -n 20
+
+/u01/app/oracle/diag/tnslsnr/ip-172-31-36-194/listener/trace/listener.log
