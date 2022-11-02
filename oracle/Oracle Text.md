@@ -55,19 +55,19 @@ Todos los cursos que llamados `libres`:
 ```sql
 SELECT a.capacitacion, a.des_capacitacion, a.costo_hora
 FROM cursos a
-WHERE contains (a.capacitacion, 'libres') > 1 and rownum <= ?
+WHERE contains (a.capacitacion, 'libres') > 1
 ```
 
 Todos los cursos que empiecen con `excel`: 
 ```sql
 SELECT a.capacitacion, a.des_capacitacion, a.costo_hora
 FROM cursos a
-WHERE contains (a.capacitacion, 'excel%') > 1 and rownum <= ?
+WHERE contains (a.capacitacion, 'excel%') > 1
 ```
 
 Buscar todos los cursos que tengan la palabra `excel` y `2010`: 
 ```sql
 SELECT a.capacitacion, a.des_capacitacion, a.costo_hora
 FROM cursos a
-WHERE contains (a.capacitacion, 'excel and 2010%') > 1 and rownum <= ?
+WHERE contains (a.capacitacion, 'excel and 2010%') > 1
 ```
