@@ -46,7 +46,7 @@ library.add(faCircleCheck)
 
 Luego, en el archivo `main.js` se editan con los siguientes cambios:
 
-```
+```js
 // Se importan los iconos
 import "./iconos.js";
 
@@ -61,7 +61,7 @@ createApp(App)
 ```
 
 Finalmente, para renderizar un ícono solo se usa el componente `<font-awesome-icon />`, por ejemplo:
-```
+```html
 <font-awesome-icon icon="fa-light fa-circle"/>
 ```
   
