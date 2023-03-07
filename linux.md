@@ -1,4 +1,4 @@
-##File system
+## Filesystem
 Cuando el disco se acerca al límite de almacenamiento podemos realizar algunas tareas de mantenimiento.
 
 1. Buscar carpetas que tengan muchos archivos pesados:
@@ -25,3 +25,20 @@ Cuando el disco se acerca al límite de almacenamiento podemos realizar algunas 
     ```
     
     > Se pueden comprimir mediante `tar -cvzf messages-20160703.tar messages-20160703`
+
+## Eliminar gran volumen de archivos
+Cuando la cantidad de archivos es muy extensa, salta el siguiente mensaje al hacer un `rm`:
+
+```
+$ rm -rf *
+-bash: /usr/bin/rm: Argument list too long
+```
+
+Por lo tanto, se puede usar el siguiente script para eliminar sin problemas:
+```
+find /path -type f -mtime +1 -exec rm -rf {} \; 
+```
+
+* `/path`: directorio donde están los archivos
+* `-type f`: considerar solo archivos
+* `-mtime +1`: solo archivos de más de un día de antigüedad
