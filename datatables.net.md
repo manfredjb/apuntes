@@ -32,4 +32,88 @@ Explicación:
 * `columns`: Las columnas asociadas a la tabla html
 
 ### Parámetros de envío
-Del lado del servidor, no 
+Cuando el objeto DataTable hace la solicitud al servidor, éste envía 2 parámetros que sirven para paginar los registros:
+
+* start: Número del primer registro
+* length: Cantidad de registros por página
+
+Muchas veces en el servidor remoto, estas variables pueden tener otros nombres, por ejemplo "pagina" o "limitePorPagina". Para no cambiar código del lado del servidor, se puede hacer un cambio en DataTable para que renombre esos parámetros. Para ello se usa la función `data()`. Ejemplo:
+
+```js
+ajax: {
+	url: 'http://localhost/personas/api.php',
+	//dataSrc: 'data',
+	data: function (d) {
+		d.pagina = d.start
+		d.limitePorPagina = d.length
+	},
+	
+```
+> Lo que soluciona el bloque anterior es que, `pagina` tendrá el valor de `start` y `limitePorPagina` tendrá el valor de  `length`.
+
+### Parámetros de respuesta
+Lo mismo sucede con la respuesta de parte del servidor, DataTable espera por defecto un bloque de la siguiente manera:
+```js
+{
+	"recordsTotal": // cantidad de registros totales en la db
+	"recordsFiltered": // cantidad de registros filtrados
+	"data": // datos  filtrados o paginados
+}
+```
+
+
+En DataTable se hace uso de la funció DataFilter para realizar dicho reemplazo. Por, suponiendo que el servidor devuelve esta estructura:
+
+```js
+{
+	"totalRegistros": // cantidad de registros totales en la db
+	"totalFiltrados": // cantidad de registros filtrados
+	"datos": // datos  filtrados o paginados
+}
+```
+
+Se procede a realizar el reemplazo:
+
+```js
+ajax: {
+	url: 'http://localhost/personas/api.php',
+	dataFilter: function(data){
+		const json = JSON.parse(data);
+		json.data = json.datos;
+		json.recordsFiltered = json.totalFiltrados;
+		json.recordsTotal = json.totalRegistros;
+		return JSON.stringify(json);
+	}
+}
+```
+
+Finalmente, un ejemplo completo quedaría de la siguiente manera:
+
+```js
+let table = new DataTable('#tabla', {
+	ajax: {
+		url: 'http://localhost/personas/api.php',
+		//dataSrc: 'data',
+		data: function (d) {
+			d.pagina = d.start
+			d.limitePorPagina = d.length
+		},
+		dataFilter: function(data){
+			const json = JSON.parse(data);
+			json.data = json.datos;
+			json.recordsFiltered = json.totalFiltrados;
+			json.recordsTotal = json.totalRegistros;
+			return JSON.stringify(json);
+		}
+	},
+	processing: true,
+	serverSide: true,
+	columns: [
+		{ data: 'name' },
+		{ data: 'language' },
+		{ data: 'id' },
+		{ data: 'bio' },
+		{ data: 'version' }
+	]
+});
+```
