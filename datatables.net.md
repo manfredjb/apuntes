@@ -28,7 +28,7 @@ let table = new DataTable('#tabla', {
 Explicación:
 * `url`: Endpoint donde se encuentran los datos.
 * `processing`: Mostrar un ícono de espera
-* `serverSid`: La paginación y el filtro de datos corre por parte del servidor
+* `serverSide`: La paginación y el filtro de datos corre por parte del servidor
 * `columns`: Las columnas asociadas a la tabla html
 
 ### Parámetros de envío
@@ -62,7 +62,7 @@ Lo mismo sucede con la respuesta de parte del servidor, DataTable espera por def
 ```
 
 
-En DataTable se hace uso de la funció DataFilter para realizar dicho reemplazo. Por, suponiendo que el servidor devuelve esta estructura:
+En DataTable se hace uso de la función DataFilter para realizar dicho reemplazo en caso de que el servidor devuelve una estructura diferente, por ejemplo:
 
 ```js
 {
