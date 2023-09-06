@@ -27,4 +27,4 @@ El resultado es el siguiente:
 -----|-------|---------
 |154	| 00007FF9E80D9078	| 00007FF9FF6814D0|
 
-Ahora solo queda terminar a sesión `154`
+Ahora solo queda matar la sesión `154`
